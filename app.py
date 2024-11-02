@@ -2,16 +2,16 @@ import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.schema import SystemMessage, HumanMessage, AIMessage
 import streamlit as st
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 # Loading api key from the environment variable
-# load_dotenv()
-# api_key = os.getenv("GEMINI_API_KEY")
+load_dotenv()
+api_key = os.getenv("GEMINI_API_KEY")
 
 # Initializing the model
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash",
                             temperature=0.8,
-                            api_key="GEMINI_API_KEY")
+                            api_key=api_key)
 
 # Handling empty session state
 if "Messages" not in st.session_state:
